@@ -5,9 +5,18 @@ const mongoose = require('mongoose')
 mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true })
 
 const personSchema = new mongoose.Schema({
-  name: String,
-  age: Number,
-  favoriteFoods: [{type: String}]
+  name: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  age: {
+    type: Number,
+    required: true,
+    min: [18, 'Must be 18 years old or more']
+  },
+  favoriteFoods: [{type: String}],
+  default: ['Shark soup', 'Salmon pizza', 'Pineapple stew']
 })
 
 
