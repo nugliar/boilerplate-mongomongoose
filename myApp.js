@@ -39,7 +39,11 @@ const createManyPeople = (arrayOfPeople, done) => {
 };
 
 const findPeopleByName = (personName, done) => {
-  done(null /*, data*/);
+  Person.find(
+    {name: new RegExp(personName, 'i')},
+    'name',
+    done(err, res)
+  )
 };
 
 const findOneByFood = (food, done) => {
