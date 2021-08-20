@@ -42,7 +42,7 @@ const findPeopleByName = (personName, done) => {
   Person.find(
     {name: personName},
     'name',
-    done(err, res)
+    function(err, res) {done(err, res)}
   )
 };
 
