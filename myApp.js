@@ -42,9 +42,9 @@ const findPeopleByName = (personName, done) => {
   Person.find(
     {name: personName},
     'name'
-  ).exec()
-  .then(res => done(null, res))
-  .catch(err => done(err))
+  ).exec(done)
+  // .then(res => done(null, res))
+  // .catch(err => done(err))
 };
 
 const findOneByFood = (food, done) => {
