@@ -6,17 +6,17 @@ mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopolo
 
 const personSchema = new mongoose.Schema({
   name: {
-    type: String,
-    required: true,
-    unique: true
+    type: String
+    // required: true,
+    // unique: true
   },
   age: {
-    type: Number,
-    required: true,
-    min: [18, 'Must be 18 years old or more']
+    type: Number
+    // required: true,
+    // min: [18, 'Must be 18 years old or more']
   },
-  favoriteFoods: [{type: String}],
-  default: ['Shark soup', 'Salmon pizza', 'Pineapple stew']
+  favoriteFoods: [{type: String}]
+  // default: ['Shark soup', 'Salmon pizza', 'Pineapple stew']
 })
 
 
