@@ -111,7 +111,7 @@ const removeManyPeople = (done) => {
   Person.remove(
     {name: nameToRemove},
     function(err, res) {
-      if (err) console.error(err);
+      if (err) console.log(err);
       done(null, res)
     }
   )
