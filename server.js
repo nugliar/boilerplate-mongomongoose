@@ -319,27 +319,28 @@ router.post("/remove-many-people", function (req, res, next) {
     if (err) {
       return next(err);
     }
-    // let t = setTimeout(() => {
-    //   next({ message: "timeout" });
-    // }, TIMEOUT);
+    let t = setTimeout(() => {
+      next({ message: "timeout" });
+    }, TIMEOUT);
+    console.log(req, req.body);
     Person.create(req.body, function (err, pers) {
       if (err) {
         return next(err);
       }
       try {
         removeMany(function (err, data) {
-          // clearTimeout(t);
-          // if (err) {
-          //   return next(err);
-          // }
+          clearTimeout(t);
+          if (err) {
+            return next(err);
+          }
           if (!data) {
             console.log("Missing `done()` argument");
             return next({ message: "Missing callback argument" });
           }
           Person.count(function (err, cnt) {
-            // if (err) {
-            //   return next(err);
-            // }
+            if (err) {
+              return next(err);
+            }
             if (data.ok === undefined) {
               // for mongoose v4
               try {
