@@ -329,17 +329,17 @@ router.post("/remove-many-people", function (req, res, next) {
       try {
         removeMany(function (err, data) {
           // clearTimeout(t);
-          if (err) {
-            return next(err);
-          }
+          // if (err) {
+          //   return next(err);
+          // }
           if (!data) {
             console.log("Missing `done()` argument");
             return next({ message: "Missing callback argument" });
           }
           Person.count(function (err, cnt) {
-            if (err) {
-              return next(err);
-            }
+            // if (err) {
+            //   return next(err);
+            // }
             if (data.ok === undefined) {
               // for mongoose v4
               try {
