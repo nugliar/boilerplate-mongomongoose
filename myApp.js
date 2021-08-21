@@ -110,9 +110,9 @@ const removeManyPeople = (done) => {
   const nameToRemove = "Mary";
   Person.remove(
     {name: nameToRemove},
-    function(err, res) {
+    function(err, cucumber) {
       if (err) console.log(err);
-      done(null, res)
+      done(null, cucumber)
     }
   )
 };
