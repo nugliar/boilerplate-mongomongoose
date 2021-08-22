@@ -322,7 +322,6 @@ router.post("/remove-many-people", function (req, res, next) {
     let t = setTimeout(() => {
       next({ message: "timeout" });
     }, TIMEOUT);
-    console.log(req, req.body);
     Person.create(req.body, function (err, pers) {
       if (err) {
         return next(err);
